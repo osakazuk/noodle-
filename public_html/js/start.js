@@ -2,10 +2,15 @@
 var startScene = new Phaser.Scene("startScene");
 
 startScene.create = function () {
-    this.gamestart = this.add.image(400, 300, 'gamestart');
-    this.gamestart.setDisplaySize(300,300);
+    this.start = this.add.image(400, 300, 'home');
+   this.start.setDisplaySize(800,600);
+    
+    //開始ボタン
+    this.push = this.add.image(400,400,'start')
+    this.push.setInteractive({ useHandCursor: true });
     // キーをクリックするとゲームスタート
-    this.input.keyboard.on('keydown', function(event) {
+    this.push.on('pointerdown', 
+    function(event) {
         this.scene.start('mainScene');
     }, this);
 };
